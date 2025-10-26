@@ -11,7 +11,7 @@ import library from './routes/library';
 import userDiscounts from './routes/user-discounts';
 import users from './routes/users';
 import ranking from './routes/ranking';
-
+import discountRoutes from "./routes/discounts";
 
 const app = express();
 app.use(cors());
@@ -25,7 +25,7 @@ app.use("/api/wallet", wallet);
 app.use("/api/admin/wallet", walletAdmin);
 app.use("/api", users);
 app.use("/api/shop", shop);
-app.use("/api/discounts", userDiscounts);
+app.use("/api/discounts", discountRoutes);
 app.use("/api/cart", cart);
 app.use("/api/library", library);
 app.use("/api/user/discounts", userDiscounts);

@@ -2,7 +2,7 @@ import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const db = mysql.createPool({
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -12,7 +12,8 @@ export const db = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   ssl: {
-    rejectUnauthorized: true // ✅ จำเป็น ต้องเปิด SSL สำหรับ Railway
+    rejectUnauthorized: false   // ✅ ยอมรับ self-signed cert จาก Railway
   }
 });
-export default db;  // ✅ เพิ่มบรรทัดนี้
+
+export default db;

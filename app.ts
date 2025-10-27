@@ -12,11 +12,13 @@ import userDiscounts from './routes/user-discounts';
 import users from './routes/users';
 import ranking from './routes/ranking';
 import discountRoutes from "./routes/discounts";
+import path from 'path';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use('/api/auth', authRoutes);
 app.use("/api/games",games);
 app.use("/api/wallet", wallet);
